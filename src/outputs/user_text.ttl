@@ -1,0 +1,41 @@
+@prefix ex: <http://example.org/ontology#>
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+ex:Organizacao a owl:Class .
+ex:Estabelecimento a owl:Class .
+ex:Cidade a owl:Class .
+ex:AtividadeEconomica a owl:Class .
+ex:DistribuicaoGeografica a owl:Class .
+
+ex:possui a owl:ObjectProperty .
+ex:temAtividadeEconomica a owl:ObjectProperty .
+ex:localizadoEm a owl:ObjectProperty .
+ex:temDistribuicaoGeografica a owl:ObjectProperty .
+
+ex:codigoCNAE a owl:DatatypeProperty .
+ex:codigoIBGE a owl:DatatypeProperty .
+ex:nome a owl:DatatypeProperty .
+
+ex:possui rdfs:domain ex:Organizacao .
+ex:possui rdfs:range ex:Estabelecimento .
+ex:temAtividadeEconomica rdfs:domain ex:Estabelecimento .
+ex:temAtividadeEconomica rdfs:range ex:AtividadeEconomica .
+ex:localizadoEm rdfs:domain ex:Estabelecimento .
+ex:localizadoEm rdfs:range ex:Cidade .
+ex:temDistribuicaoGeografica rdfs:domain ex:Estabelecimento .
+ex:temDistribuicaoGeografica rdfs:range ex:DistribuicaoGeografica .
+ex:codigoCNAE rdfs:domain ex:AtividadeEconomica .
+ex:codigoCNAE rdfs:range xsd:string .
+ex:codigoIBGE rdfs:domain ex:Cidade .
+ex:codigoIBGE rdfs:domain ex:Cidade .
+ex:codigoIBGE rdfs:range xsd:string .
+ex:nome rdfs:domain ex:Organizacao, ex:Estabelecimento, ex:Cidade, ex:AtividadeEconomica .
+ex:nome rdfs:range xsd:string .
+
+ex:VendaDeEletros a ex:AtividadeEconomica .
+ex:VendaDeEletros ex:codigoCNAE "1112" .
+ex:Aracati a ex:Cidade .
+ex:Aracati ex:codigoIBGE "2111300" .
